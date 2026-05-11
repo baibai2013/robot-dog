@@ -1,0 +1,69 @@
+# Source of truth for all task statuses.
+# Do NOT edit manually — orchestrate.py manages this file.
+# Human-only exception: set status: approved on blocked_human tasks.
+
+project: robot-dog
+last_updated: "2026-05-11"
+current_milestone: M0
+
+tasks:
+  M0-charter:
+    status: blocked_human       # waiting for user to fill charter.md
+    assigned_to: human
+    started_at: null
+    completed_at: null
+    notes: "Fill charter.md then set status: approved here"
+
+  M0-reference-survey:
+    status: ready               # no dependencies, can start now
+    assigned_to: null
+    started_at: null
+    completed_at: null
+
+  M1-leg-dof:
+    status: pending
+    depends_on: [M0-charter, M0-reference-survey]
+
+  M1-body-layout:
+    status: pending
+    depends_on: [M1-leg-dof]
+
+  M1-actuator-selection:
+    status: pending
+    depends_on: [M1-leg-dof]
+
+  M2-system-arch:
+    status: pending
+    depends_on: [M1-actuator-selection]
+
+  M2-motor-driver:
+    status: pending
+    depends_on: [M2-system-arch]
+
+  M2-main-board:
+    status: pending
+    depends_on: [M2-system-arch]
+
+  M3-comm-protocol:
+    status: pending
+    depends_on: [M2-main-board]
+
+  M3-motor-control-loop:
+    status: pending
+    depends_on: [M3-comm-protocol]
+
+  M4-kinematics:
+    status: pending
+    depends_on: [M1-leg-dof, M1-body-layout]
+
+  M4-gait-trot:
+    status: pending
+    depends_on: [M4-kinematics]
+
+  M5-urdf-gen:
+    status: pending
+    depends_on: [M1-body-layout, M4-kinematics]
+
+  M5-bom-check:
+    status: pending
+    depends_on: [M1-actuator-selection, M2-motor-driver]

@@ -1,0 +1,160 @@
+milestones:
+
+  M0:
+    name: "项目定义 · Project Definition"
+    description: "确定整体目标、约束、形态方案"
+    status: in_progress
+    tasks:
+      - id: M0-charter
+        name: "项目宪章 Project Charter"
+        domain: pm
+        owner: human
+        status: blocked_human
+        description: "填写 charter.md：目标形态、关键约束、成功标准"
+        outputs: [charter.md]
+
+      - id: M0-reference-survey
+        name: "参考机器狗调研 Reference Survey"
+        domain: mechanical
+        status: pending
+        depends_on: []
+        description: "调研 Spot / Mini Cheetah / Go2 关键参数：腿数/步态/关节自由度/负载"
+        outputs: [domains/mechanical/specs/reference-survey.md]
+
+  M1:
+    name: "机械概念设计 · Mechanical Concept"
+    description: "腿部机构方案、整机尺寸、关节选型"
+    status: pending
+    depends_on: [M0]
+    tasks:
+      - id: M1-leg-dof
+        name: "腿部自由度方案 Leg DOF Design"
+        domain: mechanical
+        status: pending
+        depends_on: [M0-charter, M0-reference-survey]
+        description: "确定每条腿 DOF 数量、关节类型（旋转/平行四连杆），输出尺寸草图"
+        outputs: [domains/mechanical/specs/leg-dof.md]
+        gate: false
+
+      - id: M1-body-layout
+        name: "机身布局 Body Layout"
+        domain: mechanical
+        status: pending
+        depends_on: [M1-leg-dof]
+        description: "机身尺寸、腿挂点位置、电池/控制板空间预留"
+        outputs: [domains/mechanical/specs/body-layout.md]
+        gate: false
+
+      - id: M1-actuator-selection
+        name: "执行器选型 Actuator Selection"
+        domain: mechanical
+        status: pending
+        depends_on: [M1-leg-dof]
+        description: "电机/减速器选型，输出扭矩/速度/功率需求表"
+        outputs: [domains/mechanical/specs/actuator-spec.md]
+        gate: true  # human gate: downstream PCB depends on this
+
+  M2:
+    name: "电子系统设计 · Electronics Design"
+    description: "主控、电机驱动、传感器、电源方案"
+    status: pending
+    depends_on: [M1]
+    tasks:
+      - id: M2-system-arch
+        name: "电子系统架构 Electronics Architecture"
+        domain: electronics
+        status: pending
+        depends_on: [M1-actuator-selection]
+        description: "主控芯片选型、通信总线、传感器列表、电源架构"
+        outputs: [domains/electronics/specs/system-arch.md]
+        gate: false
+
+      - id: M2-motor-driver
+        name: "电机驱动板原理图 Motor Driver Schematic"
+        domain: electronics
+        status: pending
+        depends_on: [M2-system-arch]
+        description: "驱动板原理图，覆盖 N 路电机 + 编码器 + 电流检测"
+        outputs: [domains/electronics/output/M2-motor-driver/]
+        gate: false
+
+      - id: M2-main-board
+        name: "主控板原理图 Main Board Schematic"
+        domain: electronics
+        status: pending
+        depends_on: [M2-system-arch]
+        description: "主控板原理图：SoC + IMU + 通信 + 外设"
+        outputs: [domains/electronics/output/M2-main-board/]
+        gate: true  # human gate: firmware depends on this
+
+  M3:
+    name: "固件框架 · Firmware Framework"
+    description: "通信协议、电机控制回路、传感器驱动"
+    status: pending
+    depends_on: [M2]
+    tasks:
+      - id: M3-comm-protocol
+        name: "通信协议定义 Communication Protocol"
+        domain: firmware
+        status: pending
+        depends_on: [M2-main-board]
+        description: "定义主控与驱动板通信协议（CAN/SPI/UART），输出协议文档"
+        outputs: [domains/firmware/specs/comm-protocol.md]
+        gate: false
+
+      - id: M3-motor-control-loop
+        name: "电机控制回路 Motor Control Loop"
+        domain: firmware
+        status: pending
+        depends_on: [M3-comm-protocol]
+        description: "PID/FOC 框架代码，支持位置/速度/力矩模式"
+        outputs: [domains/firmware/output/M3-motor-control/]
+        gate: false
+
+  M4:
+    name: "仿真验证 · Simulation"
+    description: "运动学/动力学仿真、步态初验"
+    status: pending
+    depends_on: [M1]
+    tasks:
+      - id: M4-kinematics
+        name: "运动学建模 Kinematics Model"
+        domain: simulation
+        status: pending
+        depends_on: [M1-leg-dof, M1-body-layout]
+        description: "FK/IK Python 实现，验证工作空间"
+        outputs: [domains/simulation/output/M4-kinematics/]
+        gate: false
+
+      - id: M4-gait-trot
+        name: "对角步态仿真 Trot Gait Simulation"
+        domain: simulation
+        status: pending
+        depends_on: [M4-kinematics]
+        description: "PyBullet trot 步态，验证稳定性与速度"
+        outputs: [domains/simulation/output/M4-gait-trot/]
+        gate: true  # human gate before physical build
+
+  M5:
+    name: "集成验证 · Integration"
+    description: "CAD + PCB + 固件一致性检查，URDF 生成"
+    status: pending
+    depends_on: [M2, M3, M4]
+    tasks:
+      - id: M5-urdf-gen
+        name: "URDF 生成 URDF Generation"
+        domain: integration
+        status: pending
+        depends_on: [M1-body-layout, M4-kinematics]
+        description: "从 build123d CAD 导出 URDF，验证仿真模型"
+        outputs: [domains/integration/output/M5-urdf/]
+        gate: false
+
+      - id: M5-bom-check
+        name: "BOM 一致性检查 BOM Consistency Check"
+        domain: integration
+        status: pending
+        depends_on: [M1-actuator-selection, M2-motor-driver]
+        description: "机械 BOM vs 电子 BOM 交叉验证，确保选型一致"
+        outputs: [domains/integration/output/M5-bom/]
+        gate: true  # final human review before procurement
