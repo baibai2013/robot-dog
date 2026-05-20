@@ -1,0 +1,37 @@
+{
+  "id": "hip_bracket_left",
+  "name": "Hip Bracket (Left Leg Anchor)",
+  "owner": "mechanical",
+  "mass_g": 18,
+  "material": "PETG",
+  "explode_offset": [
+    0,
+    50,
+    0
+  ],
+  "color": "#22d3ee",
+  "transform": {
+    "translation": [
+      0,
+      30,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "mount_points": [
+    {
+      "id": "chassis_seat",
+      "fastener": "M3×6 + nylock"
+    },
+    {
+      "id": "servo_seat",
+      "mounted_to": "mg996r_hip:body",
+      "fastener": "M3×4 self-tapping"
+    }
+  ]
+}

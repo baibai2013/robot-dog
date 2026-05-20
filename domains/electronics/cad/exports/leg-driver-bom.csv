@@ -1,0 +1,8 @@
+Reference,Value,Footprint,Datasheet,Vendor,Vendor URL,Price CNY,Qty
+esp32_main,ESP32-S3-DevKitC-1,,https://www.espressif.com/sites/default/files/documentation/esp32-s3-devkitc-1_v1.1_schematics.pdf,AliExpress,https://www.aliexpress.com/item/ESP32-S3-DevKitC-1,32.0,1
+battery_lipo,18650 LiPo 3.7V 2200mAh × 3 (3S),,https://example.com/18650-datasheet.pdf,AliExpress,https://www.aliexpress.com/item/lipo-3s,75.0,1
+dcdc_5v,Buck DC-DC 12V→5V 3A,,,AliExpress,https://www.aliexpress.com/item/buck-12v-5v,12.0,1
+imu_main,MPU6050 6-axis IMU,,https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050,AliExpress,https://www.aliexpress.com/item/mpu6050,6.0,1
+mg996r_hip,MG996R Servo (Hip Joint),,https://datasheetspdf.com/pdf/839028/Tower/MG996R/1,AliExpress,https://www.aliexpress.com/item/mg996r,22.0,1
+mg996r_knee,MG996R Servo (Knee Joint),,https://datasheetspdf.com/pdf/839028/Tower/MG996R/1,AliExpress,https://www.aliexpress.com/item/mg996r,22.0,1
+m3_screws,M3×8 不锈钢螺丝(20 颗),,,AliExpress,https://www.aliexpress.com/item/m3x8,0.1,20

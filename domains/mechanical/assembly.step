@@ -1,0 +1,10 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION (('Robot Dog Leg v1 - assembly'),'2;1');
+FILE_NAME ('assembly.step','2026-05-19T21:09:19.281804',('mechanical'),('robot-dog'),'mechanical/build123d','build123d','');
+FILE_SCHEMA (('AUTOMOTIVE_DESIGN'));
+ENDSEC;
+DATA;
+/* placeholder STEP body - real geometry in .glb */
+ENDSEC;
+END-ISO-10303-21;

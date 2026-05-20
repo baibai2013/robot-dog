@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "connections": [
+    {
+      "from": "esp32_main:GPIO13",
+      "to": "mg996r_hip:signal",
+      "kind": "data",
+      "label": "PWM 50Hz"
+    },
+    {
+      "from": "esp32_main:GPIO14",
+      "to": "mg996r_knee:signal",
+      "kind": "data",
+      "label": "PWM 50Hz"
+    },
+    {
+      "from": "battery_lipo:positive",
+      "to": "dcdc_5v:vin",
+      "kind": "power",
+      "label": "+12V"
+    },
+    {
+      "from": "dcdc_5v:vout",
+      "to": "esp32_main:VIN",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "from": "dcdc_5v:vout",
+      "to": "mg996r_hip:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "from": "dcdc_5v:vout",
+      "to": "mg996r_knee:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "from": "dcdc_5v:vout",
+      "to": "imu_main:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "from": "esp32_main:GPIO21",
+      "to": "imu_main:sda",
+      "kind": "data",
+      "data_subtype": "i2c",
+      "label": "I2C SDA"
+    },
+    {
+      "from": "esp32_main:GPIO22",
+      "to": "imu_main:scl",
+      "kind": "data",
+      "data_subtype": "i2c",
+      "label": "I2C SCL"
+    }
+  ]
+}

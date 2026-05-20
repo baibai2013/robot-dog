@@ -1,0 +1,310 @@
+{
+  "currency": "CNY",
+  "items": [
+    {
+      "id": "esp32_main",
+      "category": "microcontroller",
+      "subcategory": "MCU 板",
+      "name": "ESP32-S3-DevKitC-1",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 32.0,
+      "total": 32.0,
+      "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s3-devkitc-1_v1.1_schematics.pdf",
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-DEVKITC-1-N8R8/15201652",
+          "price_cny": 145.0,
+          "tier": "pro"
+        },
+        {
+          "name": "Mouser",
+          "url": "https://www.mouser.com/ProductDetail/Espressif-Systems/ESP32-S3-DevKitC-1",
+          "price_cny": 138.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/ESP32-S3-DevKitC-1",
+          "price_cny": 32.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "interfaces": [
+        {
+          "id": "GPIO13",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO14",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO21",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO22",
+          "kind": "data"
+        },
+        {
+          "id": "VIN",
+          "kind": "power"
+        },
+        {
+          "id": "GND",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "battery_lipo",
+      "category": "power",
+      "subcategory": "锂电池",
+      "name": "18650 LiPo 3.7V 2200mAh × 3 (3S)",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 75.0,
+      "total": 75.0,
+      "datasheet": "https://example.com/18650-datasheet.pdf",
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/lipo-3s",
+          "price_cny": 240.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/lipo-3s",
+          "price_cny": 75.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "interfaces": [
+        {
+          "id": "positive",
+          "kind": "power"
+        },
+        {
+          "id": "negative",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "dcdc_5v",
+      "category": "power",
+      "subcategory": "DC-DC 模块",
+      "name": "Buck DC-DC 12V→5V 3A",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 12.0,
+      "total": 12.0,
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/buck-12v-5v",
+          "price_cny": 56.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/buck-12v-5v",
+          "price_cny": 12.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "interfaces": [
+        {
+          "id": "vin",
+          "kind": "power"
+        },
+        {
+          "id": "vout",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "imu_main",
+      "category": "sensor",
+      "subcategory": "IMU",
+      "name": "MPU6050 6-axis IMU",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 6.0,
+      "total": 6.0,
+      "datasheet": "https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050",
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/mpu6050",
+          "price_cny": 30.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/mpu6050",
+          "price_cny": 6.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "interfaces": [
+        {
+          "id": "sda",
+          "kind": "data"
+        },
+        {
+          "id": "scl",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        }
+      ]
+    },
+    {
+      "id": "mg996r_hip",
+      "category": "actuator",
+      "subcategory": "舵机",
+      "name": "MG996R Servo (Hip Joint)",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 28.0,
+      "total": 28.0,
+      "datasheet": "https://datasheetspdf.com/pdf/839028/Tower/MG996R/1",
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/mg996r",
+          "price_cny": 88.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/mg996r",
+          "price_cny": 22.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "cross_domain": true,
+      "cad_model": "domains/mechanical/parts/hip_bracket_left.glb",
+      "interfaces": [
+        {
+          "id": "signal",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "body",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "mg996r_knee",
+      "category": "actuator",
+      "subcategory": "舵机",
+      "name": "MG996R Servo (Knee Joint)",
+      "owner": "hardware",
+      "qty": 1,
+      "unit_price": 28.0,
+      "total": 28.0,
+      "datasheet": "https://datasheetspdf.com/pdf/839028/Tower/MG996R/1",
+      "vendors": [
+        {
+          "name": "DigiKey",
+          "url": "https://www.digikey.com/mg996r",
+          "price_cny": 88.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/mg996r",
+          "price_cny": 22.0,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "cross_domain": true,
+      "cad_model": "domains/mechanical/parts/femur_left.glb",
+      "interfaces": [
+        {
+          "id": "signal",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "body",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "m3_screws",
+      "category": "hardware",
+      "subcategory": "螺丝",
+      "name": "M3×8 不锈钢螺丝(20 颗)",
+      "owner": "hardware",
+      "qty": 20,
+      "unit_price": 0.1,
+      "total": 2.0,
+      "vendors": [
+        {
+          "name": "McMaster-Carr",
+          "url": "https://www.mcmaster.com/m3x8",
+          "price_cny": 8.0,
+          "tier": "pro"
+        },
+        {
+          "name": "AliExpress",
+          "url": "https://www.aliexpress.com/item/m3x8",
+          "price_cny": 0.1,
+          "tier": "budget"
+        }
+      ],
+      "selected_vendor": "AliExpress",
+      "interfaces": []
+    }
+  ],
+  "summary": {
+    "total": 183,
+    "by_category": {
+      "microcontroller": 32.0,
+      "power": 87.0,
+      "sensor": 6.0,
+      "actuator": 56.0,
+      "hardware": 2.0
+    }
+  }
+}

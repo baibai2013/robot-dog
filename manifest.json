@@ -1,0 +1,165 @@
+{
+  "project": "robot-dog",
+  "name": "四足机器狗 — 左前腿 v1",
+  "version": "0.1.0",
+  "updated_at": "2026-05-19T13:09:19.285574+00:00",
+  "tags": [
+    "LEG-2DOF-V1",
+    "MG996R-BASED",
+    "<100G-PER-LEG",
+    "ESP32-S3"
+  ],
+  "hero_image": "renders/leg_iso_v1.png",
+  "summary": {
+    "mass_g": 88,
+    "dof": 2,
+    "parts_count": 3,
+    "cost_by_category": {
+      "electrical": 181.0,
+      "mechanical": 2.0,
+      "total": 183.0
+    },
+    "currency": "CNY",
+    "bbox": [
+      60.0,
+      130.0,
+      95.0
+    ]
+  },
+  "assembly": {
+    "parts": [
+      {
+        "id": "femur_left",
+        "name": "Femur Shell (Left Leg Thigh)",
+        "glb": "domains/mechanical/parts/femur_left.glb",
+        "step": "domains/mechanical/parts/femur_left.step",
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "explode_offset": [
+          0,
+          30,
+          0
+        ],
+        "color": "#a78bfa",
+        "owner": "mechanical"
+      },
+      {
+        "id": "tibia_left",
+        "name": "Tibia Shell (Left Leg Shin)",
+        "glb": "domains/mechanical/parts/tibia_left.glb",
+        "step": "domains/mechanical/parts/tibia_left.step",
+        "transform": {
+          "translation": [
+            0,
+            -50,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "explode_offset": [
+          0,
+          -30,
+          0
+        ],
+        "color": "#f472b6",
+        "owner": "mechanical"
+      },
+      {
+        "id": "hip_bracket_left",
+        "name": "Hip Bracket (Left Leg Anchor)",
+        "glb": "domains/mechanical/parts/hip_bracket_left.glb",
+        "step": "domains/mechanical/parts/hip_bracket_left.step",
+        "transform": {
+          "translation": [
+            0,
+            30,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "explode_offset": [
+          0,
+          50,
+          0
+        ],
+        "color": "#22d3ee",
+        "owner": "mechanical"
+      }
+    ],
+    "groups": [
+      {
+        "id": "leg-fl",
+        "name": "左前腿",
+        "parts": [
+          "femur_left",
+          "tibia_left",
+          "hip_bracket_left"
+        ]
+      }
+    ]
+  },
+  "deliverables": [
+    {
+      "kind": "prd",
+      "path": "prd/leg-2dof-v1.md",
+      "owner": "product_manager"
+    },
+    {
+      "kind": "cad",
+      "path": "domains/mechanical/parts/",
+      "owner": "mechanical"
+    },
+    {
+      "kind": "schematic",
+      "path": "domains/electronics/cad/exports/leg-driver-sch.svg",
+      "owner": "hardware",
+      "extra": {
+        "source": "domains/electronics/leg-driver.kicad_sch"
+      }
+    },
+    {
+      "kind": "pcb",
+      "path": "domains/electronics/cad/exports/leg-driver-pcb-top.svg",
+      "owner": "hardware",
+      "extra": {
+        "source": "domains/electronics/leg-driver.kicad_pcb"
+      }
+    },
+    {
+      "kind": "firmware",
+      "path": "domains/firmware/src/leg_pwm.c",
+      "owner": "firmware"
+    },
+    {
+      "kind": "algorithm",
+      "path": "domains/firmware/algo/ik_2dof.py",
+      "owner": "algorithm"
+    },
+    {
+      "kind": "bom",
+      "path": "domains/electronics/bom.json",
+      "owner": "cost"
+    }
+  ]
+}

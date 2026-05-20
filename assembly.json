@@ -1,0 +1,237 @@
+{
+  "tools": [
+    "3D printer (PETG, ≥200×200×200 build volume)",
+    "M2/M3 hex keys",
+    "Soldering iron (350°C tip)",
+    "Multimeter",
+    "Heat-set insert installer (2-3mm pin)",
+    "PlatformIO IDE / VSCode"
+  ],
+  "assumptions": [
+    "Basic soldering skills",
+    "Familiarity with PlatformIO / Arduino IDE",
+    "Understanding of servo PWM control signals (50Hz, 1-2ms duty)",
+    "Have a 3.7V lithium 3S battery pack pre-charged"
+  ],
+  "phases": [
+    {
+      "name": "Fabricate",
+      "icon": "🛠",
+      "steps": [
+        {
+          "id": "1.1",
+          "text": "3D print femur / tibia / hip-bracket (PETG, 30% infill)",
+          "parts": 3,
+          "refs": [
+            "femur_left",
+            "tibia_left",
+            "hip_bracket_left"
+          ]
+        },
+        {
+          "id": "1.2",
+          "text": "Install M3 heat-set inserts into hip_bracket servo_seat (4 holes)",
+          "parts": 4,
+          "refs": [
+            "hip_bracket_left"
+          ]
+        },
+        {
+          "id": "1.3",
+          "text": "Clean and deburr 3D printed parts (sandpaper 320 grit)",
+          "parts": 3,
+          "refs": [
+            "femur_left",
+            "tibia_left",
+            "hip_bracket_left"
+          ]
+        },
+        {
+          "id": "1.4",
+          "text": "Visual QC: warpage < 0.5mm, no layer separation",
+          "parts": 0,
+          "refs": []
+        }
+      ]
+    },
+    {
+      "name": "Wire",
+      "icon": "🔌",
+      "steps": [
+        {
+          "id": "2.1",
+          "text": "Solder JST-XH connectors to MG996R Hip + Knee servo leads",
+          "parts": 2,
+          "refs": [
+            "mg996r_hip",
+            "mg996r_knee"
+          ]
+        },
+        {
+          "id": "2.2",
+          "text": "Wire ESP32 GPIO13 → MG996R Hip signal (yellow lead)",
+          "parts": 2,
+          "refs": [
+            "esp32_main",
+            "mg996r_hip"
+          ]
+        },
+        {
+          "id": "2.3",
+          "text": "Wire ESP32 GPIO14 → MG996R Knee signal (yellow lead)",
+          "parts": 2,
+          "refs": [
+            "esp32_main",
+            "mg996r_knee"
+          ]
+        },
+        {
+          "id": "2.4",
+          "text": "Connect battery 3S+ → DCDC 12V→5V vin; DCDC vout → ESP32 VIN + 2 servos vcc + IMU vcc",
+          "parts": 5,
+          "refs": [
+            "battery_lipo",
+            "dcdc_5v"
+          ]
+        },
+        {
+          "id": "2.5",
+          "text": "Wire ESP32 GPIO21/22 ↔ MPU6050 SDA/SCL (4.7kΩ pull-up to VCC)",
+          "parts": 2,
+          "refs": [
+            "imu_main"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Assemble",
+      "icon": "🔧",
+      "steps": [
+        {
+          "id": "3.1",
+          "text": "Bolt hip_bracket to chassis seat with M3×6 (cross pattern)",
+          "parts": 4,
+          "refs": [
+            "hip_bracket_left"
+          ]
+        },
+        {
+          "id": "3.2",
+          "text": "Insert MG996R Hip into hip_bracket servo_seat, secure with M3×4 self-tapping",
+          "parts": 4,
+          "refs": [
+            "hip_bracket_left",
+            "mg996r_hip"
+          ]
+        },
+        {
+          "id": "3.3",
+          "text": "Bolt femur to MG996R Hip horn (servo at 90° mid)",
+          "parts": 4,
+          "refs": [
+            "femur_left",
+            "mg996r_hip"
+          ]
+        },
+        {
+          "id": "3.4",
+          "text": "Insert MG996R Knee into femur knee_mount, secure with M3×8 + nylock",
+          "parts": 4,
+          "refs": [
+            "femur_left",
+            "mg996r_knee"
+          ]
+        },
+        {
+          "id": "3.5",
+          "text": "Bolt tibia to MG996R Knee horn (servo at 45° mid)",
+          "parts": 4,
+          "refs": [
+            "tibia_left",
+            "mg996r_knee"
+          ]
+        },
+        {
+          "id": "3.6",
+          "text": "Sanity check: no pinch; both joints rotate freely through full range",
+          "parts": 0,
+          "refs": []
+        }
+      ]
+    },
+    {
+      "name": "Program",
+      "icon": "💾",
+      "steps": [
+        {
+          "id": "4.1",
+          "text": "Open PlatformIO; configure target = esp32-s3-devkitc-1",
+          "parts": 0,
+          "refs": []
+        },
+        {
+          "id": "4.2",
+          "text": "pio lib install madhephaestus/ESP32Servo",
+          "parts": 0,
+          "refs": []
+        },
+        {
+          "id": "4.3",
+          "text": "pio run --target upload (firmware/src/leg_pwm.c)",
+          "parts": 0,
+          "refs": [
+            "esp32_main"
+          ]
+        },
+        {
+          "id": "4.4",
+          "text": "Open serial monitor 115200; expect 'PWM ready, IMU on I2C 0x68'",
+          "parts": 0,
+          "refs": []
+        }
+      ]
+    },
+    {
+      "name": "Calibrate",
+      "icon": "🎯",
+      "steps": [
+        {
+          "id": "5.1",
+          "text": "Set both servos to mid (Hip=90°, Knee=45°)",
+          "parts": 2,
+          "refs": [
+            "mg996r_hip",
+            "mg996r_knee"
+          ]
+        },
+        {
+          "id": "5.2",
+          "text": "Manually verify femur is parallel to chassis at Hip 90°",
+          "parts": 0,
+          "refs": []
+        },
+        {
+          "id": "5.3",
+          "text": "Manually verify tibia at 45° from femur",
+          "parts": 0,
+          "refs": []
+        },
+        {
+          "id": "5.4",
+          "text": "Run IK self-test: python algo/ik_2dof.py (3 target poses)",
+          "parts": 0,
+          "refs": []
+        },
+        {
+          "id": "5.5",
+          "text": "Read MPU6050 raw accel/gyro to confirm I2C link",
+          "parts": 0,
+          "refs": [
+            "imu_main"
+          ]
+        }
+      ]
+    }
+  ]
+}

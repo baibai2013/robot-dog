@@ -1,0 +1,528 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-20T03:34:07.790664+00:00",
+  "nodes": [
+    {
+      "id": "esp32_main",
+      "kind": "mcu",
+      "label": "ESP32-S3-DevKitC-1",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/0",
+        "datasheet": "https://www.espressif.com/sites/default/files/documentation/esp32-s3-devkitc-1_v1.1_schematics.pdf"
+      },
+      "interfaces": [
+        {
+          "id": "GPIO13",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO14",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO21",
+          "kind": "data"
+        },
+        {
+          "id": "GPIO22",
+          "kind": "data"
+        },
+        {
+          "id": "VIN",
+          "kind": "power"
+        },
+        {
+          "id": "GND",
+          "kind": "power"
+        },
+        {
+          "id": "board_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "battery_lipo",
+      "kind": "power",
+      "label": "18650 LiPo 3.7V 2200mAh × 3 (3S)",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/1",
+        "datasheet": "https://example.com/18650-datasheet.pdf"
+      },
+      "interfaces": [
+        {
+          "id": "positive",
+          "kind": "power"
+        },
+        {
+          "id": "negative",
+          "kind": "power"
+        },
+        {
+          "id": "board_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "dcdc_5v",
+      "kind": "power",
+      "label": "Buck DC-DC 12V→5V 3A",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/2",
+        "datasheet": null
+      },
+      "interfaces": [
+        {
+          "id": "vin",
+          "kind": "power"
+        },
+        {
+          "id": "vout",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "board_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "imu_main",
+      "kind": "sensor",
+      "label": "MPU6050 6-axis IMU",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/3",
+        "datasheet": "https://invensense.tdk.com/products/motion-tracking/6-axis/mpu-6050"
+      },
+      "interfaces": [
+        {
+          "id": "sda",
+          "kind": "data"
+        },
+        {
+          "id": "scl",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "board_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "mg996r_hip",
+      "kind": "actuator_cross_domain",
+      "label": "MG996R Servo (Hip Joint)",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/4",
+        "datasheet": "https://datasheetspdf.com/pdf/839028/Tower/MG996R/1",
+        "cad_model": "domains/mechanical/parts/hip_bracket_left.glb"
+      },
+      "interfaces": [
+        {
+          "id": "signal",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "body",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "mg996r_knee",
+      "kind": "actuator_cross_domain",
+      "label": "MG996R Servo (Knee Joint)",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/5",
+        "datasheet": "https://datasheetspdf.com/pdf/839028/Tower/MG996R/1",
+        "cad_model": "domains/mechanical/parts/femur_left.glb"
+      },
+      "interfaces": [
+        {
+          "id": "signal",
+          "kind": "data"
+        },
+        {
+          "id": "vcc",
+          "kind": "power"
+        },
+        {
+          "id": "gnd",
+          "kind": "power"
+        },
+        {
+          "id": "body",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "m3_screws",
+      "kind": "generic",
+      "label": "M3×8 不锈钢螺丝(20 颗)",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "bom": "bom.json#items/6",
+        "datasheet": null
+      },
+      "interfaces": [
+        {
+          "id": "board_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "femur_left",
+      "kind": "cad_part",
+      "label": "Femur Shell (Left Leg Thigh)",
+      "domain": "mechanical",
+      "owner": "mechanical",
+      "owner_label": "Dave",
+      "ref": {
+        "step": "domains/mechanical/parts/femur_left.step",
+        "glb": "domains/mechanical/parts/femur_left.glb",
+        "part_meta": "domains/mechanical/parts/femur_left.json"
+      },
+      "interfaces": [
+        {
+          "id": "hip_mount",
+          "kind": "mechanical"
+        },
+        {
+          "id": "knee_mount",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "hip_bracket_left",
+      "kind": "cad_part",
+      "label": "Hip Bracket (Left Leg Anchor)",
+      "domain": "mechanical",
+      "owner": "mechanical",
+      "owner_label": "Dave",
+      "ref": {
+        "step": "domains/mechanical/parts/hip_bracket_left.step",
+        "glb": "domains/mechanical/parts/hip_bracket_left.glb",
+        "part_meta": "domains/mechanical/parts/hip_bracket_left.json"
+      },
+      "interfaces": [
+        {
+          "id": "chassis_seat",
+          "kind": "mechanical"
+        },
+        {
+          "id": "servo_seat",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "tibia_left",
+      "kind": "cad_part",
+      "label": "Tibia Shell (Left Leg Shin)",
+      "domain": "mechanical",
+      "owner": "mechanical",
+      "owner_label": "Dave",
+      "ref": {
+        "step": "domains/mechanical/parts/tibia_left.step",
+        "glb": "domains/mechanical/parts/tibia_left.glb",
+        "part_meta": "domains/mechanical/parts/tibia_left.json"
+      },
+      "interfaces": [
+        {
+          "id": "knee_top",
+          "kind": "mechanical"
+        },
+        {
+          "id": "foot_pad",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "pcb_leg_driver",
+      "kind": "pcb",
+      "label": "Leg Driver PCB",
+      "domain": "electronics",
+      "owner": "hardware",
+      "owner_label": "大法师",
+      "ref": {
+        "schematic_block": "domains/electronics/leg-driver.kicad_pcb",
+        "step": null
+      },
+      "interfaces": [
+        {
+          "id": "seat_esp32_main",
+          "kind": "mechanical"
+        },
+        {
+          "id": "seat_battery_lipo",
+          "kind": "mechanical"
+        },
+        {
+          "id": "seat_dcdc_5v",
+          "kind": "mechanical"
+        },
+        {
+          "id": "seat_imu_main",
+          "kind": "mechanical"
+        },
+        {
+          "id": "seat_m3_screws",
+          "kind": "mechanical"
+        }
+      ]
+    },
+    {
+      "id": "algo_fk_2dof",
+      "kind": "algorithm",
+      "label": "FK 2DOF Solver",
+      "domain": "firmware",
+      "owner": "algorithm",
+      "owner_label": "喵喵球",
+      "ref": {
+        "part_meta": "domains/firmware/algo/fk_2dof.py"
+      },
+      "interfaces": [
+        {
+          "id": "input",
+          "kind": "data"
+        },
+        {
+          "id": "output",
+          "kind": "data"
+        }
+      ]
+    },
+    {
+      "id": "algo_ik_2dof",
+      "kind": "algorithm",
+      "label": "IK 2DOF Solver",
+      "domain": "firmware",
+      "owner": "algorithm",
+      "owner_label": "喵喵球",
+      "ref": {
+        "part_meta": "domains/firmware/algo/ik_2dof.py"
+      },
+      "interfaces": [
+        {
+          "id": "input",
+          "kind": "data"
+        },
+        {
+          "id": "output",
+          "kind": "data"
+        }
+      ]
+    },
+    {
+      "id": "fw_main",
+      "kind": "firmware",
+      "label": "Firmware (leg_pwm)",
+      "domain": "firmware",
+      "owner": "firmware",
+      "owner_label": "小布丁",
+      "ref": {
+        "part_meta": "domains/firmware/src/leg_pwm.c"
+      },
+      "interfaces": [
+        {
+          "id": "algo_in",
+          "kind": "data"
+        },
+        {
+          "id": "to_mcu",
+          "kind": "data"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_wire_000",
+      "from": "esp32_main:GPIO13",
+      "to": "mg996r_hip:signal",
+      "kind": "data",
+      "label": "PWM 50Hz"
+    },
+    {
+      "id": "e_wire_001",
+      "from": "esp32_main:GPIO14",
+      "to": "mg996r_knee:signal",
+      "kind": "data",
+      "label": "PWM 50Hz"
+    },
+    {
+      "id": "e_wire_002",
+      "from": "battery_lipo:positive",
+      "to": "dcdc_5v:vin",
+      "kind": "power",
+      "label": "+12V"
+    },
+    {
+      "id": "e_wire_003",
+      "from": "dcdc_5v:vout",
+      "to": "esp32_main:VIN",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "id": "e_wire_004",
+      "from": "dcdc_5v:vout",
+      "to": "mg996r_hip:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "id": "e_wire_005",
+      "from": "dcdc_5v:vout",
+      "to": "mg996r_knee:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "id": "e_wire_006",
+      "from": "dcdc_5v:vout",
+      "to": "imu_main:vcc",
+      "kind": "power",
+      "label": "+5V"
+    },
+    {
+      "id": "e_wire_007",
+      "from": "esp32_main:GPIO21",
+      "to": "imu_main:sda",
+      "kind": "data",
+      "label": "I2C SDA",
+      "data_subtype": "i2c"
+    },
+    {
+      "id": "e_wire_008",
+      "from": "esp32_main:GPIO22",
+      "to": "imu_main:scl",
+      "kind": "data",
+      "label": "I2C SCL",
+      "data_subtype": "i2c"
+    },
+    {
+      "id": "e_mech_000",
+      "from": "mg996r_hip:body",
+      "to": "femur_left:hip_mount",
+      "kind": "mechanical",
+      "label": "M3×4 self-tapping"
+    },
+    {
+      "id": "e_mech_001",
+      "from": "mg996r_knee:body",
+      "to": "femur_left:knee_mount",
+      "kind": "mechanical",
+      "label": "M3×8 + nylock"
+    },
+    {
+      "id": "e_mech_002",
+      "from": "mg996r_hip:body",
+      "to": "hip_bracket_left:servo_seat",
+      "kind": "mechanical",
+      "label": "M3×4 self-tapping"
+    },
+    {
+      "id": "e_pcb_000",
+      "from": "pcb_leg_driver:seat_esp32_main",
+      "to": "esp32_main:board_seat",
+      "kind": "mechanical",
+      "label": "PCB seat (SMD/THT)"
+    },
+    {
+      "id": "e_pcb_001",
+      "from": "pcb_leg_driver:seat_battery_lipo",
+      "to": "battery_lipo:board_seat",
+      "kind": "mechanical",
+      "label": "PCB seat (SMD/THT)"
+    },
+    {
+      "id": "e_pcb_002",
+      "from": "pcb_leg_driver:seat_dcdc_5v",
+      "to": "dcdc_5v:board_seat",
+      "kind": "mechanical",
+      "label": "PCB seat (SMD/THT)"
+    },
+    {
+      "id": "e_pcb_003",
+      "from": "pcb_leg_driver:seat_imu_main",
+      "to": "imu_main:board_seat",
+      "kind": "mechanical",
+      "label": "PCB seat (SMD/THT)"
+    },
+    {
+      "id": "e_pcb_004",
+      "from": "pcb_leg_driver:seat_m3_screws",
+      "to": "m3_screws:board_seat",
+      "kind": "mechanical",
+      "label": "PCB seat (SMD/THT)"
+    },
+    {
+      "id": "e_algo_000",
+      "from": "algo_fk_2dof:output",
+      "to": "fw_main:algo_in",
+      "kind": "data",
+      "label": "fk_2dof angles"
+    },
+    {
+      "id": "e_algo_001",
+      "from": "algo_ik_2dof:output",
+      "to": "fw_main:algo_in",
+      "kind": "data",
+      "label": "ik_2dof angles"
+    },
+    {
+      "id": "e_fw_to_mcu",
+      "from": "fw_main:to_mcu",
+      "to": "esp32_main:GPIO13",
+      "kind": "data",
+      "label": "deploy → MCU"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tibia_left",
+  "name": "Tibia Shell (Left Leg Shin)",
+  "owner": "mechanical",
+  "mass_g": 28,
+  "material": "PETG",
+  "explode_offset": [
+    0,
+    -30,
+    0
+  ],
+  "color": "#f472b6",
+  "transform": {
+    "translation": [
+      0,
+      -50,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "mount_points": [
+    {
+      "id": "knee_top",
+      "fastener": "M3×4 + spring washer"
+    },
+    {
+      "id": "foot_pad",
+      "fastener": "rubber pad cementing"
+    }
+  ]
+}

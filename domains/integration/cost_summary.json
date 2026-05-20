@@ -1,0 +1,48 @@
+{
+  "currency": "CNY",
+  "summary": {
+    "electrical": 181,
+    "mechanical": 2.0,
+    "total": 183
+  },
+  "currency_note": "CNY,选 budget tier 报价(AliExpress / 自打印)。pro tier 总价约 ×3.5 倍。",
+  "owner": "cost",
+  "computed_at": "2026-05-19T13:09:19.285311+00:00",
+  "by_item": [
+    {
+      "id": "esp32_main",
+      "name": "ESP32-S3-DevKitC-1",
+      "total": 32.0
+    },
+    {
+      "id": "battery_lipo",
+      "name": "18650 LiPo 3.7V 2200mAh × 3 (3S)",
+      "total": 75.0
+    },
+    {
+      "id": "dcdc_5v",
+      "name": "Buck DC-DC 12V→5V 3A",
+      "total": 12.0
+    },
+    {
+      "id": "imu_main",
+      "name": "MPU6050 6-axis IMU",
+      "total": 6.0
+    },
+    {
+      "id": "mg996r_hip",
+      "name": "MG996R Servo (Hip Joint)",
+      "total": 28.0
+    },
+    {
+      "id": "mg996r_knee",
+      "name": "MG996R Servo (Knee Joint)",
+      "total": 28.0
+    },
+    {
+      "id": "m3_screws",
+      "name": "M3×8 不锈钢螺丝(20 颗)",
+      "total": 2.0
+    }
+  ]
+}

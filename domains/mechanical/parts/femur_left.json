@@ -1,0 +1,38 @@
+{
+  "id": "femur_left",
+  "name": "Femur Shell (Left Leg Thigh)",
+  "owner": "mechanical",
+  "mass_g": 42,
+  "material": "PETG",
+  "explode_offset": [
+    0,
+    30,
+    0
+  ],
+  "color": "#a78bfa",
+  "transform": {
+    "translation": [
+      0,
+      0,
+      0
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "mount_points": [
+    {
+      "id": "hip_mount",
+      "mounted_to": "mg996r_hip:body",
+      "fastener": "M3×4 self-tapping"
+    },
+    {
+      "id": "knee_mount",
+      "mounted_to": "mg996r_knee:body",
+      "fastener": "M3×8 + nylock"
+    }
+  ]
+}
