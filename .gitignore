@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 .venv/
 node_modules/
+
+# Superpowers brainstorm skill working dir (HTML drafts + server state)
+.superpowers/
